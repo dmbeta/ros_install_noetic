@@ -137,6 +137,8 @@ echo "##########################################################################
 echo ">>> {Step 6: Setting ROS Environment, This will add ROS environment to .bashrc.}" 
 echo ">>> { After adding this, you can able to access ROS commands in terminal}"
 echo ""
+mkdir /home/root
+touch /home/root/.bashrc
 echo "source /opt/ros/noetic/setup.bash" >> /home/$user_name/.bashrc
 source /home/$user_name/.bashrc
 echo ""
