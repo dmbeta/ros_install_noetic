@@ -6,7 +6,7 @@ Setup the docker container with these commands:
 docker run -it --entrypoint "/bin/bash" ubuntu:20.04
 # inside the container
 apt install curl -y
-curl https://raw.githubusercontent.com/dmbeta/ros_install_noetic/master/ros_install_noetic.sh
+curl https://raw.githubusercontent.com/dmbeta/ros_install_noetic/master/ros_install_noetic.sh > ros_install_noetic.sh
 chmod +x ros_install_noetic.sh
 ./ros_install_noetic.sh
 ```
