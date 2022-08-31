@@ -1,3 +1,17 @@
+# Fork of ROS Noetic Install
+This is a fork made for class CS 6301 so that it could be easily installed in docker.
+
+Setup the docker container with these commands:
+```bash
+docker run -it --entrypoint "/bin/bash" ubuntu:20.04
+# inside the container
+apt install curl -y
+curl https://raw.githubusercontent.com/dmbeta/ros_install_noetic/master/ros_install_noetic.sh
+chmod +x ros_install_noetic.sh
+./ros_install_noetic.sh
+```
+
+
 # Quick ROS Noetic Install
 
 This repository is having a simple bash script to install ROS Noetic Ninjemys.

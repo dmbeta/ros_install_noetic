@@ -11,12 +11,12 @@ echo ">>> {Uninstalling ROS Noetic Installation from your computer}"
 echo ""
 echo ">>> {It will take around few minutes to complete}"
 echo ""
-sudo apt-get purge ros-*
+apt-get purge ros-*
 echo ""
 echo "#################################################################"
 echo ""
 echo ">>> {Auto removing dependent packages}"
-sudo apt-get autoremove
+apt-get autoremove
 echo ""
 echo ">>> {Done: ROS Noetic Uninstall}"
 echo "#################################################################"

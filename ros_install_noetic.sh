@@ -5,6 +5,8 @@
 # Copyright (c) 2014 OROCA and ROS Korea Users Group
 
 #set -x
+apt update && apt upgrade -y
+apt install wget software-properties-common -y
 
 name_ros_distro=noetic 
 user_name=$(whoami)
@@ -36,9 +38,9 @@ echo ""
 #Configure your Ubuntu repositories to allow "restricted," "universe," and "multiverse." You can follow the Ubuntu guide for instructions on doing this. 
 #https://help.ubuntu.com/community/Repositories/Ubuntu
 
-sudo add-apt-repository universe
-sudo add-apt-repository restricted
-sudo add-apt-repository multiverse
+add-apt-repository universe
+add-apt-repository restricted
+add-apt-repository multiverse
 
 echo ""
 echo ">>> {Done: Added Ubuntu repositories}"
@@ -48,7 +50,7 @@ echo ">>> {Step 2: Setup your sources.list}"
 echo ""
 
 #This will add the ROS Noetic package list to sources.list 
-sudo sh -c "echo \"deb http://packages.ros.org/ros/ubuntu ${version} main\" > /etc/apt/sources.list.d/ros-latest.list"
+sh -c "echo \"deb http://packages.ros.org/ros/ubuntu ${version} main\" > /etc/apt/sources.list.d/ros-latest.list"
 
 #Checking file added or not
 if [ ! -e /etc/apt/sources.list.d/ros-latest.list ]; then
@@ -73,7 +75,7 @@ echo ">>> {Installing curl for adding keys}"
 #else
 #    echo "Curl is not installed,Installing Curl"
 
-sudo apt install curl
+apt install curl
 #fi
 
 echo "#######################################################################################################################"
@@ -81,7 +83,7 @@ echo ""
 #Adding keys
 echo ">>> {Waiting for adding keys, it will take few seconds}"
 echo ""
-ret=$(curl -sSL 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC1CF6E31E6BADE8868B172B4F42ED6FBAB17C654' | sudo apt-key add -)
+ret=$(curl -sSL 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC1CF6E31E6BADE8868B172B4F42ED6FBAB17C654' | apt-key add -)
 
 #Checking return value is OK
 case $ret in
@@ -97,7 +99,7 @@ echo ""
 echo "#######################################################################################################################"
 echo ">>> {Step 4: Updating Ubuntu package index, this will take few minutes depend on your network connection}"
 echo ""
-sudo apt update
+apt update
 echo ""
 echo "#######################################################################################################################"
 echo ">>> {Step 5: Install ROS, you pick how much of ROS you would like to install.}"
@@ -128,7 +130,7 @@ echo "##########################################################################
 echo ""
 echo ">>>  {Starting ROS installation, this will take about 20 min. It will depends on your internet  connection}"
 echo ""
-sudo apt-get install -y ros-${name_ros_distro}-${package_type} 
+apt-get install -y ros-${name_ros_distro}-${package_type} 
 echo ""
 echo ""
 echo "#######################################################################################################################"
@@ -145,3 +147,6 @@ echo ">>> {Type [ rosversion -d ] to get the current ROS installed version}"
 echo ""
 echo "#######################################################################################################################"
 
+echo ""
+echo "Installing terminator"
+apt install terminator -y
